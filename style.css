@@ -101,3 +101,24 @@ a:hover {
 .nav-links a:hover {
   opacity: 1;
 }
+
+/* ---------- STORY PAGE BOOK TYPOGRAPHY ---------- */
+
+/* Main text block for story pages */
+.story-page .box {
+  max-width: 70ch;              /* Not too wide = easier to read */
+  margin: 0 auto 3rem auto;     /* Center the box on the page */
+  font-family: "Georgia", "Times New Roman", serif;  /* Book-style font */
+  font-size: 1.05rem;           /* Slightly bigger text */
+  line-height: 1.9;             /* More space between lines */
+}
+
+/* Space between paragraphs */
+.story-page .box p {
+  margin: 0 0 1.3em 0;
+}
+
+/* Indent paragraphs after the first one (like a novel) */
+.story-page .box p + p {
+  text-indent: 1.5em;
+}
