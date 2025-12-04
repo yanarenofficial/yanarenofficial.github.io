@@ -2,7 +2,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
   background: #0f0f0f;
   color: white;
 }
@@ -13,32 +13,48 @@ body {
   margin: 60px auto 80px;
   border: 2px solid white;
   padding: 50px 60px;
-  line-height: 1.8;
-  font-size: 18px;
   background: rgba(0, 0, 0, 0.4);
 }
 
-/* === Typography === */
-h1 {
+/* === Typography hierarchy === */
+
+/* Main page titles inside the content box */
+.box h1 {
   font-size: 42px;
   margin-bottom: 32px;
   text-align: center;
+  font-weight: 700;
 }
 
-h2 {
+/* Section headers inside the content box */
+.box h2 {
   font-size: 26px;
-  margin-bottom: 6px;
+  margin-top: 32px;
+  margin-bottom: 8px;
+  font-weight: 600;
 }
 
+/* Optional smaller header if you ever use it */
+.box h3 {
+  font-size: 20px;
+  margin-top: 24px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+/* Meta / small text blocks */
 .meta {
   opacity: 0.7;
   font-size: 14px;
   margin-bottom: 12px;
 }
 
-p {
+/* Paragraphs inside the content box */
+.box p {
   margin-bottom: 20px;
   opacity: 0.9;
+  font-size: 18px;
+  line-height: 1.8;
 }
 
 /* === Links === */
@@ -81,16 +97,21 @@ a:hover {
   gap: 24px;
 }
 
+/* Brand mark */
 .site-title {
-  font-size: 20px;
-  font-weight: bold;
-  letter-spacing: 0.08em;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
+/* Top navigation links */
 .nav-links a {
   margin-left: 18px;
   font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   opacity: 0.85;
 }
 
