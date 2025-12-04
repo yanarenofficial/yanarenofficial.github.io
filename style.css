@@ -7,14 +7,6 @@ body {
   color: white;
 }
 
-/* Universal image safety — prevents ALL images from ever breaking layout */
-.box img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 32px auto;
-}
-
 /* Centers the main content column */
 .box {
   max-width: 800px;
@@ -152,7 +144,76 @@ a:hover {
   text-indent: 1.5em;
 }
 
-/* ---------- MOBILE NAV LAYOUT ---------- */
+/* ---------- HOMEPAGE LAYOUT ---------- */
+
+/* Tagline under "Yanaren" */
+.tagline {
+  font-size: 18px;
+  opacity: 0.8;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+/* Featured project block (cover + text side by side) */
+.featured-project {
+  margin-top: 32px;
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+/* Container that holds the cover image */
+.featured-project-cover {
+  max-width: 360px;
+  flex-shrink: 0;
+  order: 0; /* image left on desktop */
+}
+
+/* Make sure cover scales nicely and doesn’t overflow */
+.featured-project-cover img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+}
+
+/* Text column next to the image */
+.featured-project-text {
+  flex: 1;
+  order: 1; /* text right on desktop */
+}
+
+/* Link sitting under both text + image */
+.featured-project-link {
+  margin-top: 16px;
+}
+
+/* ---------- MOBILE LAYOUT (HOMEPAGE + NAV) ---------- */
+@media (max-width: 768px) {
+  /* Stack featured-project vertically and tighten spacing */
+  .featured-project {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  /* Text first, image second on mobile */
+  .featured-project-text {
+    order: 0;
+  }
+
+  .featured-project-cover {
+    order: 1;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  /* Reduce paragraph bottom margin inside the featured text
+     so the gap above the cover isn't huge */
+  .featured-project-text p {
+    margin-bottom: 12px;
+  }
+}
+
 @media (max-width: 600px) {
   .site-header {
     padding: 16px 20px;
@@ -177,55 +238,5 @@ a:hover {
     font-size: 13px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-  }
-}
-
-/* ---------- HOMEPAGE LAYOUT ---------- */
-
-/* Tagline under "Yanaren" */
-.tagline {
-  font-size: 18px;
-  opacity: 0.8;
-  margin-bottom: 40px;
-  text-align: center;
-}
-
-/* Featured project block (cover + text side by side) */
-.featured-project {
-  margin-top: 32px;
-  display: flex;
-  gap: 32px;
-  align-items: flex-start;
-  flex-direction: row-reverse; /* Desktop: cover on the left, text on the right */
-}
-
-/* Container that holds the cover image */
-.featured-project-cover {
-  max-width: 360px;
-  flex-shrink: 0;
-}
-
-/* Make sure cover scales nicely and doesn’t overflow */
-.featured-project-cover img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 6px;
-}
-
-/* Text column next to the image */
-.featured-project-text {
-  flex: 1;
-}
-
-/* Mobile: stack image above text */
-@media (max-width: 768px) {
-  .featured-project {
-    flex-direction: column;
-  }
-
-  .featured-project-cover {
-    max-width: 100%;
-    margin: 0 auto;
   }
 }
