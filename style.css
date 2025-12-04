@@ -171,3 +171,52 @@ a:hover {
     text-transform: uppercase;
   }
 }
+
+/* ---------- HOMEPAGE LAYOUT ---------- */
+
+/* Tagline under "Yanaren" */
+.tagline {
+  font-size: 18px;
+  opacity: 0.8;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+/* Featured project block (cover + text side by side) */
+.featured-project {
+  margin-top: 32px;
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+/* Container that holds the cover image */
+.featured-project-cover {
+  max-width: 360px;
+  flex-shrink: 0;
+}
+
+/* Make sure cover scales nicely and doesn’t overflow */
+.featured-project-cover img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+}
+
+/* Text column next to the image */
+.featured-project-text {
+  flex: 1;
+}
+
+/* Mobile: stack image above text */
+@media (max-width: 768px) {
+  .featured-project {
+    flex-direction: column;
+  }
+
+  .featured-project-cover {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
