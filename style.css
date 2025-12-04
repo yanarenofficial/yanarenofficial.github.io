@@ -196,6 +196,7 @@ a:hover {
   display: flex;
   gap: 32px;
   align-items: flex-start;
+  flex-direction: row-reverse; /* Desktop: cover on the left, text on the right */
 }
 
 /* Container that holds the cover image */
