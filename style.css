@@ -127,11 +127,11 @@ a:hover {
 
 /* Main text block for story pages */
 .story-page .box {
-  max-width: 70ch;              /* Not too wide = easier to read */
-  margin: 0 auto 3rem auto;     /* Center the box on the page */
-  font-family: "Georgia", "Times New Roman", serif;  /* Book-style font */
-  font-size: 1.05rem;           /* Slightly bigger text */
-  line-height: 1.9;             /* More space between lines */
+  max-width: 70ch;
+  margin: 0 auto 3rem auto;
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 1.05rem;
+  line-height: 1.9;
 }
 
 /* Space between paragraphs */
@@ -142,4 +142,32 @@ a:hover {
 /* Indent paragraphs after the first one (like a novel) */
 .story-page .box p + p {
   text-indent: 1.5em;
+}
+
+/* ---------- MOBILE NAV LAYOUT ---------- */
+@media (max-width: 600px) {
+  .site-header {
+    padding: 16px 20px;
+  }
+
+  .header-inner {
+    max-width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .nav-links a {
+    margin-left: 0;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
 }
