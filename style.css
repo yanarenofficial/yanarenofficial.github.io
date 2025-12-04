@@ -7,6 +7,14 @@ body {
   color: white;
 }
 
+/* Universal image safety — prevents ALL images from ever breaking layout */
+.box img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 32px auto;
+}
+
 /* Centers the main content column */
 .box {
   max-width: 800px;
