@@ -1,4 +1,7 @@
-/* === Base layout === */
+/* =========================================================
+   BASE LAYOUT
+   ========================================================= */
+
 body {
   margin: 0;
   padding: 0;
@@ -16,9 +19,10 @@ body {
   background: rgba(0, 0, 0, 0.4);
 }
 
-/* === Typography hierarchy === */
+/* =========================================================
+   TYPOGRAPHY HIERARCHY
+   ========================================================= */
 
-/* Main page titles inside the content box */
 .box h1 {
   font-size: 42px;
   margin-bottom: 32px;
@@ -26,16 +30,15 @@ body {
   font-weight: 700;
 }
 
-/* Section headers inside the content box */
 .box h2 {
   font-size: 26px;
-  margin-top: 40px;      /* was 32px */
-  margin-bottom: 10px;   /* was 8px */
+  margin-top: 40px;
+  margin-bottom: 10px;
   font-weight: 600;
   position: relative;
 }
 
-/* Subtle divider above each section heading */
+/* Divider above each section header */
 .box h2::before {
   content: "";
   display: block;
@@ -45,7 +48,6 @@ body {
   margin-bottom: 14px;
 }
 
-/* Optional smaller header if you ever use it */
 .box h3 {
   font-size: 20px;
   margin-top: 24px;
@@ -53,14 +55,12 @@ body {
   font-weight: 600;
 }
 
-/* Meta / small text blocks */
 .meta {
   opacity: 0.7;
   font-size: 14px;
   margin-bottom: 12px;
 }
 
-/* Paragraphs inside the content box */
 .box p {
   margin-bottom: 20px;
   opacity: 0.9;
@@ -68,7 +68,10 @@ body {
   line-height: 1.8;
 }
 
-/* === Links === */
+/* =========================================================
+   LINKS / FOOTER
+   ========================================================= */
+
 a {
   color: #7fd4ff;
   text-decoration: none;
@@ -78,7 +81,6 @@ a:hover {
   text-decoration: underline;
 }
 
-/* === Back link + footer === */
 .back {
   text-align: center;
   margin-top: 40px;
@@ -92,7 +94,10 @@ a:hover {
   text-align: center;
 }
 
-/* === Global Header / Navigation === */
+/* =========================================================
+   GLOBAL HEADER / NAV
+   ========================================================= */
+
 .site-header {
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   padding: 20px 40px;
@@ -108,7 +113,6 @@ a:hover {
   gap: 24px;
 }
 
-/* Brand mark */
 .site-title {
   font-size: 18px;
   font-weight: 700;
@@ -116,7 +120,6 @@ a:hover {
   text-transform: uppercase;
 }
 
-/* Top navigation links */
 .nav-links a {
   margin-left: 18px;
   font-size: 14px;
@@ -134,9 +137,10 @@ a:hover {
   opacity: 1;
 }
 
-/* ---------- STORY PAGE BOOK TYPOGRAPHY ---------- */
+/* =========================================================
+   STORY PAGE TYPOGRAPHY
+   ========================================================= */
 
-/* Main text block for story pages */
 .story-page .box {
   max-width: 70ch;
   margin: 0 auto 3rem auto;
@@ -145,19 +149,18 @@ a:hover {
   line-height: 1.9;
 }
 
-/* Space between paragraphs */
 .story-page .box p {
   margin: 0 0 1.3em 0;
 }
 
-/* Indent paragraphs after the first one (like a novel) */
 .story-page .box p + p {
   text-indent: 1.5em;
 }
 
-/* ---------- HOMEPAGE LAYOUT ---------- */
+/* =========================================================
+   HOMEPAGE LAYOUT
+   ========================================================= */
 
-/* Tagline under "Yanaren" */
 .tagline {
   font-size: 18px;
   opacity: 0.8;
@@ -165,23 +168,20 @@ a:hover {
   text-align: center;
 }
 
-/* Featured project block (cover + text side by side on desktop) */
 .featured-project {
   margin-top: 32px;
-  margin-bottom: 32px;   /* added to separate from Start Reading */
+  margin-bottom: 32px;
   display: flex;
   gap: 32px;
   align-items: flex-start;
 }
 
-/* Container that holds the cover image */
 .featured-project-cover {
   max-width: 360px;
   flex-shrink: 0;
-  order: 0; /* image left on desktop */
+  order: 0;
 }
 
-/* Make sure cover scales nicely and doesn’t overflow */
 .featured-project-cover img {
   width: 100%;
   height: auto;
@@ -189,24 +189,24 @@ a:hover {
   border-radius: 6px;
 }
 
-/* Text column next to the image */
 .featured-project-text {
   flex: 1;
-  order: 1; /* text right on desktop */
+  order: 1;
 }
 
-/* (Legacy) link style under featured project – kept in case you reuse it */
 .featured-project-link {
   margin-top: 16px;
 }
 
-/* Featured project CTA links (desktop + mobile variants) */
 .featured-cta {
   display: inline-block;
   margin-top: 16px;
 }
 
-/* Desktop: show CTA under text, hide CTA under image */
+/* =========================================================
+   CTA BUTTON SYSTEM
+   ========================================================= */
+
 .desktop-only {
   display: inline-block;
 }
@@ -215,9 +215,6 @@ a:hover {
   display: none;
 }
 
-/* ---------- CTA BUTTONS ---------- */
-
-/* Base CTA button style */
 .cta-button {
   display: inline-block;
   padding: 10px 22px;
@@ -237,7 +234,6 @@ a:hover {
     box-shadow 0.18s ease;
 }
 
-/* Primary CTA: strongest emphasis (featured project) */
 .cta-primary {
   border-color: #ffffff;
   color: #ffffff;
@@ -246,12 +242,10 @@ a:hover {
 .cta-primary:hover {
   background: #ffffff;
   color: #0f0f0f;
-  text-decoration: none;
   transform: translateY(-1px);
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
 }
 
-/* Secondary CTAs: slightly softer emphasis (Start Reading links) */
 .cta-secondary {
   border-color: #7fd4ff;
   color: #7fd4ff;
@@ -260,33 +254,100 @@ a:hover {
 .cta-secondary:hover {
   background: #7fd4ff;
   color: #0f0f0f;
-  text-decoration: none;
   transform: translateY(-1px);
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
 }
 
-/* Ensure global link underline doesn't interfere with button hover */
 .cta-button:hover {
   text-decoration: none;
 }
 
-/* ---------- DESKTOP-SPECIFIC SAFETY RULE ---------- */
-/* On desktop widths, absolutely never show the mobile CTA */
+/* Desktop safety rule */
 @media (min-width: 769px) {
   .mobile-only {
     display: none !important;
   }
 }
 
-/* ---------- MOBILE LAYOUT (HOMEPAGE + NAV) ---------- */
+/* =========================================================
+   WORKS INDEX (CARDS)
+   ========================================================= */
+
+.works-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 32px;
+}
+
+@media (min-width: 900px) {
+  .works-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+}
+
+.work-card {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 14px;
+  padding: 20px 22px;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.work-header h3 {
+  margin-top: 0;
+  margin-bottom: 6px;
+}
+
+.work-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.work-tag {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  opacity: 0.85;
+}
+
+.work-description {
+  font-size: 15px;
+  line-height: 1.7;
+  opacity: 0.9;
+  margin-bottom: 4px;
+}
+
+.work-status {
+  font-size: 13px;
+  opacity: 0.85;
+  margin-bottom: 10px;
+}
+
+.work-card .cta-button {
+  margin-top: 6px;
+  align-self: flex-start;
+}
+
+/* =========================================================
+   MOBILE LAYOUT
+   ========================================================= */
+
 @media (max-width: 768px) {
-  /* Stack featured-project vertically and tighten spacing */
   .featured-project {
     flex-direction: column;
     gap: 16px;
   }
 
-  /* Text first, image second on mobile */
   .featured-project-text {
     order: 0;
   }
@@ -297,13 +358,10 @@ a:hover {
     margin: 0 auto;
   }
 
-  /* Reduce paragraph bottom margin inside the featured text
-     so the gap above the cover isn't huge */
   .featured-project-text p {
     margin-bottom: 12px;
   }
 
-  /* Mobile: hide desktop CTA, show CTA under image */
   .desktop-only {
     display: none;
   }
@@ -340,7 +398,6 @@ a:hover {
     text-transform: uppercase;
   }
 
-  /* Slightly tighter content box on the smallest screens */
   .box {
     margin: 40px auto 60px;
     padding: 32px 22px;
