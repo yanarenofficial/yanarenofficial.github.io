@@ -154,7 +154,7 @@ a:hover {
   text-align: center;
 }
 
-/* Featured project block (cover + text side by side) */
+/* Featured project block (cover + text side by side on desktop) */
 .featured-project {
   margin-top: 32px;
   display: flex;
@@ -183,9 +183,24 @@ a:hover {
   order: 1; /* text right on desktop */
 }
 
-/* Link sitting under both text + image */
+/* (Legacy) link style under featured project – kept in case you reuse it */
 .featured-project-link {
   margin-top: 16px;
+}
+
+/* Featured project CTA links (desktop + mobile variants) */
+.featured-cta {
+  display: inline-block;
+  margin-top: 16px;
+}
+
+/* Desktop: show CTA under text, hide CTA under image */
+.desktop-only {
+  display: inline-block;
+}
+
+.mobile-only {
+  display: none;
 }
 
 /* ---------- MOBILE LAYOUT (HOMEPAGE + NAV) ---------- */
@@ -211,6 +226,16 @@ a:hover {
      so the gap above the cover isn't huge */
   .featured-project-text p {
     margin-bottom: 12px;
+  }
+
+  /* Mobile: hide desktop CTA, show CTA under image */
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-only {
+    display: inline-block;
+    margin-top: 16px;
   }
 }
 
