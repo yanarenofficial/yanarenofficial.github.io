@@ -29,9 +29,20 @@ body {
 /* Section headers inside the content box */
 .box h2 {
   font-size: 26px;
-  margin-top: 32px;
-  margin-bottom: 8px;
+  margin-top: 40px;      /* was 32px */
+  margin-bottom: 10px;   /* was 8px */
   font-weight: 600;
+  position: relative;
+}
+
+/* Subtle divider above each section heading */
+.box h2::before {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.18);
+  margin-bottom: 14px;
 }
 
 /* Optional smaller header if you ever use it */
@@ -157,6 +168,7 @@ a:hover {
 /* Featured project block (cover + text side by side on desktop) */
 .featured-project {
   margin-top: 32px;
+  margin-bottom: 32px;   /* added to separate from Start Reading */
   display: flex;
   gap: 32px;
   align-items: flex-start;
@@ -326,5 +338,11 @@ a:hover {
     font-size: 13px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+  }
+
+  /* Slightly tighter content box on the smallest screens */
+  .box {
+    margin: 40px auto 60px;
+    padding: 32px 22px;
   }
 }
