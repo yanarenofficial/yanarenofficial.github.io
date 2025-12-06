@@ -203,6 +203,61 @@ a:hover {
   display: none;
 }
 
+/* ---------- CTA BUTTONS ---------- */
+
+/* Base CTA button style */
+.cta-button {
+  display: inline-block;
+  padding: 10px 22px;
+  border-radius: 999px;
+  border: 2px solid #7fd4ff;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  background: transparent;
+  color: #7fd4ff;
+  cursor: pointer;
+  transition:
+    background 0.18s ease,
+    color 0.18s ease,
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+/* Primary CTA: strongest emphasis (featured project) */
+.cta-primary {
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+.cta-primary:hover {
+  background: #ffffff;
+  color: #0f0f0f;
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+}
+
+/* Secondary CTAs: slightly softer emphasis (Start Reading links) */
+.cta-secondary {
+  border-color: #7fd4ff;
+  color: #7fd4ff;
+}
+
+.cta-secondary:hover {
+  background: #7fd4ff;
+  color: #0f0f0f;
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+}
+
+/* Ensure global link underline doesn't interfere with button hover */
+.cta-button:hover {
+  text-decoration: none;
+}
+
 /* ---------- MOBILE LAYOUT (HOMEPAGE + NAV) ---------- */
 @media (max-width: 768px) {
   /* Stack featured-project vertically and tighten spacing */
