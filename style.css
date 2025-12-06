@@ -258,6 +258,14 @@ a:hover {
   text-decoration: none;
 }
 
+/* ---------- DESKTOP-SPECIFIC SAFETY RULE ---------- */
+/* On desktop widths, absolutely never show the mobile CTA */
+@media (min-width: 769px) {
+  .mobile-only {
+    display: none !important;
+  }
+}
+
 /* ---------- MOBILE LAYOUT (HOMEPAGE + NAV) ---------- */
 @media (max-width: 768px) {
   /* Stack featured-project vertically and tighten spacing */
