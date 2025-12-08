@@ -339,8 +339,184 @@ a:hover {
 }
 
 /* =========================================================
+   PROJECT PAGES (ROOMMATE HUB ETC.)
+   ========================================================= */
+
+/* Body-level padding for project hubs */
+.project-page main {
+  padding: 40px 20px 80px;
+}
+
+/* Main bordered container similar to .box but wider */
+.project-container {
+  max-width: 960px;
+  margin: 40px auto 80px;
+  border: 2px solid white;
+  padding: 40px 48px;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* Header block at top of project page */
+.project-header {
+  margin-bottom: 32px;
+}
+
+/* Main project title */
+.project-title {
+  font-size: 34px;
+  line-height: 1.25;
+  margin: 0 0 16px 0;
+  text-align: left;
+  font-weight: 700;
+}
+
+/* Optional mini-subtitle under the title */
+.project-subtitle {
+  font-size: 16px;
+  opacity: 0.8;
+  margin: 0;
+}
+
+/* Row containing meta + status pill */
+.project-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 16px;
+  margin-top: 18px;
+}
+
+.project-meta {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* Status system */
+.status-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.75;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* Specific status colors (extendable later) */
+.status-in-progress {
+  border-color: #7fd4ff;
+  background: rgba(127, 212, 255, 0.08);
+  color: #7fd4ff;
+}
+
+.status-draft {
+  border-color: #ffc857;
+  background: rgba(255, 200, 87, 0.08);
+  color: #ffc857;
+}
+
+.status-complete {
+  border-color: #8bffb0;
+  background: rgba(139, 255, 176, 0.08);
+  color: #8bffb0;
+}
+
+/* Main layout: cover + intro copy */
+.project-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+  margin-top: 32px;
+}
+
+/* Cover column */
+.project-cover {
+  max-width: 340px;
+  flex-shrink: 0;
+}
+
+.project-cover img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+/* Right-hand text column */
+.project-intro {
+  flex: 1;
+}
+
+/* Sections below intro */
+.project-section {
+  margin-top: 40px;
+}
+
+/* Section headings visually consistent with .box h2 */
+.project-section h2 {
+  font-size: 26px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-weight: 600;
+  position: relative;
+}
+
+.project-section h2::before {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.18);
+  margin-bottom: 14px;
+}
+
+/* Paragraph + list styling within project sections */
+.project-section p {
+  margin-bottom: 18px;
+  opacity: 0.9;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.project-section ul {
+  margin: 0 0 18px 1.2em;
+  padding-left: 0;
+}
+
+.project-section li {
+  margin-bottom: 8px;
+  opacity: 0.9;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* Fine-tune the "Back" link when used inside project-container */
+.project-container .back {
+  margin-top: 32px;
+}
+
+/* =========================================================
    MOBILE LAYOUT
    ========================================================= */
+
+@media (max-width: 900px) {
+  /* Stack cover and intro on smaller screens */
+  .project-layout {
+    flex-direction: column;
+  }
+
+  .project-cover {
+    max-width: 100%;
+  }
+}
 
 @media (max-width: 768px) {
   .featured-project {
@@ -369,6 +545,16 @@ a:hover {
   .mobile-only {
     display: inline-block;
     margin-top: 16px;
+  }
+
+  /* Project containers: slightly tighter padding on mobile */
+  .project-container {
+    margin: 32px auto 60px;
+    padding: 28px 20px;
+  }
+
+  .project-title {
+    font-size: 26px;
   }
 }
 
