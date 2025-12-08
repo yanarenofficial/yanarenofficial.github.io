@@ -338,6 +338,11 @@ a:hover {
   align-self: flex-start;
 }
 
+/* Optional header wrapper for status pill in work cards */
+.work-card-header {
+  margin-bottom: 8px;
+}
+
 /* =========================================================
    PROJECT PAGES (ROOMMATE HUB ETC.)
    ========================================================= */
@@ -391,7 +396,7 @@ a:hover {
   opacity: 0.8;
 }
 
-/* Status system */
+/* Label text near status, if used */
 .status-label {
   font-size: 12px;
   text-transform: uppercase;
@@ -399,34 +404,124 @@ a:hover {
   opacity: 0.75;
 }
 
+/* =========================================================
+   GLOBAL PROJECT STATUS SYSTEM
+   ========================================================= */
+
 .status-pill {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 12px;
   padding: 4px 10px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  background: rgba(255, 255, 255, 0.04);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.06);
+  color: #f5f5f5;
+  white-space: nowrap;
 }
 
-/* Specific status colors (extendable later) */
+.status-pill::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+/* STATE VARIANTS (new system) */
+
+.status-pill--drafting,
+.status-draft,
 .status-in-progress {
-  border-color: #7fd4ff;
-  background: rgba(127, 212, 255, 0.08);
-  color: #7fd4ff;
+  border-color: rgba(255, 196, 87, 0.7);
+  background: radial-gradient(circle at top left, rgba(255, 196, 87, 0.25), rgba(0, 0, 0, 0.7));
+  color: #ffde8a;
 }
 
-.status-draft {
-  border-color: #ffc857;
-  background: rgba(255, 200, 87, 0.08);
-  color: #ffc857;
+.status-pill--revising {
+  border-color: rgba(118, 209, 255, 0.8);
+  background: radial-gradient(circle at top left, rgba(118, 209, 255, 0.25), rgba(0, 0, 0, 0.7));
+  color: #aee4ff;
 }
 
+.status-pill--complete,
 .status-complete {
-  border-color: #8bffb0;
-  background: rgba(139, 255, 176, 0.08);
-  color: #8bffb0;
+  border-color: rgba(144, 238, 144, 0.8);
+  background: radial-gradient(circle at top left, rgba(144, 238, 144, 0.25), rgba(0, 0, 0, 0.7));
+  color: #c5ffc5;
+}
+
+.status-pill--ongoing {
+  border-color: rgba(206, 160, 255, 0.9);
+  background: radial-gradient(circle at top left, rgba(206, 160, 255, 0.25), rgba(0, 0, 0, 0.7));
+  color: #e3c6ff;
+}
+
+.status-pill--hiatus {
+  border-color: rgba(255, 135, 135, 0.9);
+  background: radial-gradient(circle at top left, rgba(255, 135, 135, 0.2), rgba(0, 0, 0, 0.8));
+  color: #ffb3b3;
+}
+
+.status-pill--planned {
+  border-color: rgba(170, 170, 170, 0.8);
+  background: radial-gradient(circle at top left, rgba(170, 170, 170, 0.2), rgba(0, 0, 0, 0.85));
+  color: #dddddd;
+}
+
+/* Optional: legend for statuses */
+.status-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+/* Paragraph + list styling within project sections */
+.project-section {
+  margin-top: 40px;
+}
+
+/* Section headings visually consistent with .box h2 */
+.project-section h2 {
+  font-size: 26px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-weight: 600;
+  position: relative;
+}
+
+.project-section h2::before {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.18);
+  margin-bottom: 14px;
+}
+
+.project-section p {
+  margin-bottom: 18px;
+  opacity: 0.9;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.project-section ul {
+  margin: 0 0 18px 1.2em;
+  padding-left: 0;
+}
+
+.project-section li {
+  margin-bottom: 8px;
+  opacity: 0.9;
+  font-size: 16px;
+  line-height: 1.7;
 }
 
 /* Main layout: cover + intro copy */
@@ -453,49 +548,6 @@ a:hover {
 /* Right-hand text column */
 .project-intro {
   flex: 1;
-}
-
-/* Sections below intro */
-.project-section {
-  margin-top: 40px;
-}
-
-/* Section headings visually consistent with .box h2 */
-.project-section h2 {
-  font-size: 26px;
-  margin-top: 0;
-  margin-bottom: 10px;
-  font-weight: 600;
-  position: relative;
-}
-
-.project-section h2::before {
-  content: "";
-  display: block;
-  width: 48px;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.18);
-  margin-bottom: 14px;
-}
-
-/* Paragraph + list styling within project sections */
-.project-section p {
-  margin-bottom: 18px;
-  opacity: 0.9;
-  font-size: 17px;
-  line-height: 1.8;
-}
-
-.project-section ul {
-  margin: 0 0 18px 1.2em;
-  padding-left: 0;
-}
-
-.project-section li {
-  margin-bottom: 8px;
-  opacity: 0.9;
-  font-size: 16px;
-  line-height: 1.7;
 }
 
 /* Fine-tune the "Back" link when used inside project-container */
