@@ -1,643 +1,74 @@
-/* =========================================================
-   BASE LAYOUT
-   ========================================================= */
+/* 1. Base & Variables */
+:root {
+  --bg: #090909;
+  --text: #e4e4e4;
+  --muted: #888888;
+  --border: #1a1a1a;
+  --accent: #ffffff;
+}
+
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-  background: #0f0f0f;
-  color: white;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.7;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Centers the main content column */
-.box {
-  max-width: 800px;
-  margin: 60px auto 80px;
-  border: 2px solid white;
-  padding: 50px 60px;
-  background: rgba(0, 0, 0, 0.4);
+/* 2. Layouts */
+.box, .project-container {
+  max-width: 700px;
+  margin: 80px auto;
+  padding: 0 20px;
 }
 
-/* =========================================================
-   TYPOGRAPHY HIERARCHY
-   ========================================================= */
+/* 3. Typography */
+h1 { font-size: 32px; font-weight: 700; margin-bottom: 24px; color: #fff; }
+h2 { font-size: 20px; font-weight: 600; margin: 48px 0 24px; color: #fff; letter-spacing: -0.01em; }
+p { margin-bottom: 24px; color: var(--text); opacity: 0.9; }
 
-.box h1 {
-  font-size: 42px;
-  margin-bottom: 32px;
-  text-align: center;
-  font-weight: 700;
-}
+/* 4. Nav & Header */
+.site-header { padding: 40px 0; border-bottom: 1px solid var(--border); margin-bottom: 60px; }
+.header-inner { max-width: 700px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+.site-title { font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: #fff; }
+.nav-links a { color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; margin-left: 20px; transition: color 0.2s; }
+.nav-links a:hover { color: #fff; }
 
-.box h2 {
-  font-size: 26px;
-  margin-top: 40px;
-  margin-bottom: 10px;
-  font-weight: 600;
-  position: relative;
-}
-
-/* Divider above each section header */
-.box h2::before {
-  content: "";
-  display: block;
-  width: 48px;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.18);
-  margin-bottom: 14px;
-}
-
-.box h3 {
-  font-size: 20px;
-  margin-top: 24px;
-  margin-bottom: 8px;
-  font-weight: 600;
-}
-
-.meta {
-  opacity: 0.7;
-  font-size: 14px;
-  margin-bottom: 12px;
-}
-
-.box p {
-  margin-bottom: 20px;
-  opacity: 0.9;
-  font-size: 18px;
-  line-height: 1.8;
-}
-
-/* =========================================================
-   LINKS / FOOTER
-   ========================================================= */
-
-a {
-  color: #7fd4ff;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-.back {
-  text-align: center;
-  margin-top: 40px;
-  opacity: 0.85;
-}
-
-.copyright {
-  margin-top: 40px;
-  font-size: 13px;
-  opacity: 0.65;
-  text-align: center;
-}
-
-/* =========================================================
-   GLOBAL HEADER / NAV
-   ========================================================= */
-
-.site-header {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 20px 40px;
-  background: #0f0f0f;
-}
-
-.header-inner {
-  max-width: 800px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 24px;
-}
-
-.site-title {
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-
-.nav-links a {
-  margin-left: 18px;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  opacity: 0.85;
-}
-
-.nav-links a:first-child {
-  margin-left: 0;
-}
-
-.nav-links a:hover {
-  opacity: 1;
-}
-
-/* =========================================================
-   STORY PAGE TYPOGRAPHY
-   ========================================================= */
-
-.story-page .box {
-  max-width: 70ch;
-  margin: 0 auto 3rem auto;
-  font-family: "Georgia", "Times New Roman", serif;
-  font-size: 1.05rem;
-  line-height: 1.9;
-}
-
-.story-page .box p {
-  margin: 0 0 1.3em 0;
-}
-
-.story-page .box p + p {
-  text-indent: 1.5em;
-}
-
-/* =========================================================
-   HOMEPAGE LAYOUT
-   ========================================================= */
-
-.tagline {
-  font-size: 18px;
-  opacity: 0.8;
-  margin-bottom: 40px;
-  text-align: center;
-}
-
-.featured-project {
-  margin-top: 32px;
-  margin-bottom: 32px;
-  display: flex;
-  gap: 32px;
-  align-items: flex-start;
-}
-
-.featured-project-cover {
-  max-width: 360px;
-  flex-shrink: 0;
-  order: 0;
-}
-
-.featured-project-cover img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 6px;
-}
-
-.featured-project-text {
-  flex: 1;
-  order: 1;
-}
-
-.featured-project-link {
-  margin-top: 16px;
-}
-
-.featured-cta {
-  display: inline-block;
-  margin-top: 16px;
-}
-
-/* =========================================================
-   CTA BUTTON SYSTEM
-   ========================================================= */
-
-.desktop-only {
-  display: inline-block;
-}
-
-.mobile-only {
-  display: none;
-}
-
+/* 5. Buttons */
 .cta-button {
   display: inline-block;
-  padding: 10px 22px;
-  border-radius: 999px;
-  border: 2px solid #7fd4ff;
-  font-size: 16px;
-  font-weight: 600;
-  letter-spacing: 0.03em;
+  padding: 10px 20px;
+  border: 1px solid var(--border);
+  color: var(--text);
   text-decoration: none;
-  background: transparent;
-  color: #7fd4ff;
-  cursor: pointer;
-  transition:
-    background 0.18s ease,
-    color 0.18s ease,
-    transform 0.18s ease,
-    box-shadow 0.18s ease;
-}
-
-.cta-primary {
-  border-color: #ffffff;
-  color: #ffffff;
-}
-
-.cta-primary:hover {
-  background: #ffffff;
-  color: #0f0f0f;
-  transform: translateY(-1px);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
-}
-
-.cta-secondary {
-  border-color: #7fd4ff;
-  color: #7fd4ff;
-}
-
-.cta-secondary:hover {
-  background: #7fd4ff;
-  color: #0f0f0f;
-  transform: translateY(-1px);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
-}
-
-.cta-button:hover {
-  text-decoration: none;
-}
-
-/* Desktop safety rule */
-@media (min-width: 769px) {
-  .mobile-only {
-    display: none !important;
-  }
-}
-
-/* =========================================================
-   WORKS INDEX (CARDS)
-   ========================================================= */
-
-.works-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  margin-top: 32px;
-}
-
-@media (min-width: 900px) {
-  .works-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px;
-  }
-}
-
-.work-card {
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 14px;
-  padding: 20px 22px;
-  background: rgba(0, 0, 0, 0.35);
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.work-header h3 {
-  margin-top: 0;
-  margin-bottom: 6px;
-}
-
-.work-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 4px;
-}
-
-.work-tag {
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 2px 8px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  opacity: 0.85;
-}
-
-.work-description {
-  font-size: 15px;
-  line-height: 1.7;
-  opacity: 0.9;
-  margin-bottom: 4px;
-}
-
-.work-status {
-  font-size: 13px;
-  opacity: 0.85;
-  margin-bottom: 10px;
-}
-
-.work-card .cta-button {
-  margin-top: 6px;
-  align-self: flex-start;
-}
-
-/* Optional header wrapper for status pill in work cards */
-.work-card-header {
-  margin-bottom: 8px;
-}
-
-/* =========================================================
-   PROJECT PAGES (ROOMMATE HUB ETC.)
-   ========================================================= */
-
-/* Body-level padding for project hubs */
-.project-page main {
-  padding: 40px 20px 80px;
-}
-
-/* Main bordered container similar to .box but wider */
-.project-container {
-  max-width: 960px;
-  margin: 40px auto 80px;
-  border: 2px solid white;
-  padding: 40px 48px;
-  background: rgba(0, 0, 0, 0.4);
-}
-
-/* Header block at top of project page */
-.project-header {
-  margin-bottom: 32px;
-}
-
-/* Main project title */
-.project-title {
-  font-size: 34px;
-  line-height: 1.25;
-  margin: 0 0 16px 0;
-  text-align: left;
-  font-weight: 700;
-}
-
-/* Optional mini-subtitle under the title */
-.project-subtitle {
-  font-size: 16px;
-  opacity: 0.8;
-  margin: 0;
-}
-
-/* Row containing meta + status pill */
-.project-meta-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 12px 16px;
-  margin-top: 18px;
-}
-
-.project-meta {
   font-size: 14px;
-  opacity: 0.8;
+  transition: all 0.2s;
+  border-radius: 4px;
 }
+.cta-button:hover { background: #fff; color: #000; border-color: #fff; }
 
-/* Label text near status, if used */
-.status-label {
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  opacity: 0.75;
-}
+/* 6. Works Grid & Cards */
+.works-grid { display: grid; gap: 24px; grid-template-columns: 1fr; }
+.work-card { border: 1px solid var(--border); padding: 24px; border-radius: 6px; }
+.work-header h3 { margin: 0 0 12px; font-size: 18px; }
+.work-tag { font-size: 11px; text-transform: uppercase; color: var(--muted); border: 1px solid var(--border); padding: 2px 8px; border-radius: 4px; margin-right: 6px; }
 
-/* =========================================================
-   GLOBAL PROJECT STATUS SYSTEM
-   ========================================================= */
+/* 7. Status Pills (Minimalist) */
+.status-pill { display: inline-flex; font-size: 11px; padding: 2px 8px; border: 1px solid var(--border); border-radius: 4px; color: var(--muted); text-transform: uppercase; margin-bottom: 10px; }
 
-.status-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  font-size: 12px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  background: rgba(255, 255, 255, 0.06);
-  color: #f5f5f5;
-  white-space: nowrap;
-}
+/* 8. Featured Project */
+.featured-project { display: flex; gap: 40px; margin: 40px 0; align-items: flex-start; }
+.featured-project-cover { width: 200px; flex-shrink: 0; }
+.featured-project-cover img { width: 100%; border-radius: 4px; }
 
-.status-pill::before {
-  content: "";
-  width: 7px;
-  height: 7px;
-  border-radius: 999px;
-  background: currentColor;
-}
-
-/* STATE VARIANTS (new system) */
-
-.status-pill--drafting,
-.status-draft,
-.status-in-progress {
-  border-color: rgba(255, 196, 87, 0.7);
-  background: radial-gradient(circle at top left, rgba(255, 196, 87, 0.25), rgba(0, 0, 0, 0.7));
-  color: #ffde8a;
-}
-
-.status-pill--revising {
-  border-color: rgba(118, 209, 255, 0.8);
-  background: radial-gradient(circle at top left, rgba(118, 209, 255, 0.25), rgba(0, 0, 0, 0.7));
-  color: #aee4ff;
-}
-
-.status-pill--complete,
-.status-complete {
-  border-color: rgba(144, 238, 144, 0.8);
-  background: radial-gradient(circle at top left, rgba(144, 238, 144, 0.25), rgba(0, 0, 0, 0.7));
-  color: #c5ffc5;
-}
-
-.status-pill--ongoing {
-  border-color: rgba(206, 160, 255, 0.9);
-  background: radial-gradient(circle at top left, rgba(206, 160, 255, 0.25), rgba(0, 0, 0, 0.7));
-  color: #e3c6ff;
-}
-
-.status-pill--hiatus {
-  border-color: rgba(255, 135, 135, 0.9);
-  background: radial-gradient(circle at top left, rgba(255, 135, 135, 0.2), rgba(0, 0, 0, 0.8));
-  color: #ffb3b3;
-}
-
-.status-pill--planned {
-  border-color: rgba(170, 170, 170, 0.8);
-  background: radial-gradient(circle at top left, rgba(170, 170, 170, 0.2), rgba(0, 0, 0, 0.85));
-  color: #dddddd;
-}
-
-/* Optional: legend for statuses */
-.status-legend {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 12px;
-  font-size: 12px;
-  opacity: 0.9;
-}
-
-/* Paragraph + list styling within project sections */
-.project-section {
-  margin-top: 40px;
-}
-
-/* Section headings visually consistent with .box h2 */
-.project-section h2 {
-  font-size: 26px;
-  margin-top: 0;
-  margin-bottom: 10px;
-  font-weight: 600;
-  position: relative;
-}
-
-.project-section h2::before {
-  content: "";
-  display: block;
-  width: 48px;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.18);
-  margin-bottom: 14px;
-}
-
-.project-section p {
-  margin-bottom: 18px;
-  opacity: 0.9;
-  font-size: 17px;
-  line-height: 1.8;
-}
-
-.project-section ul {
-  margin: 0 0 18px 1.2em;
-  padding-left: 0;
-}
-
-.project-section li {
-  margin-bottom: 8px;
-  opacity: 0.9;
-  font-size: 16px;
-  line-height: 1.7;
-}
-
-/* Main layout: cover + intro copy */
-.project-layout {
-  display: flex;
-  align-items: flex-start;
-  gap: 32px;
-  margin-top: 32px;
-}
-
-/* Cover column */
-.project-cover {
-  max-width: 340px;
-  flex-shrink: 0;
-}
-
-.project-cover img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 8px;
-}
-
-/* Right-hand text column */
-.project-intro {
-  flex: 1;
-}
-
-/* Fine-tune the "Back" link when used inside project-container */
-.project-container .back {
-  margin-top: 32px;
-}
-
-/* =========================================================
-   MOBILE LAYOUT
-   ========================================================= */
-
-@media (max-width: 900px) {
-  /* Stack cover and intro on smaller screens */
-  .project-layout {
-    flex-direction: column;
-  }
-
-  .project-cover {
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 768px) {
-  .featured-project {
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .featured-project-text {
-    order: 0;
-  }
-
-  .featured-project-cover {
-    order: 1;
-    max-width: 100%;
-    margin: 0 auto;
-  }
-
-  .featured-project-text p {
-    margin-bottom: 12px;
-  }
-
-  .desktop-only {
-    display: none;
-  }
-
-  .mobile-only {
-    display: inline-block;
-    margin-top: 16px;
-  }
-
-  /* Project containers: slightly tighter padding on mobile */
-  .project-container {
-    margin: 32px auto 60px;
-    padding: 28px 20px;
-  }
-
-  .project-title {
-    font-size: 26px;
-  }
-}
-
+/* 9. Media Queries */
 @media (max-width: 600px) {
-  .site-header {
-    padding: 16px 20px;
-  }
-
-  .header-inner {
-    max-width: 100%;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .nav-links {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-  }
-
-  .nav-links a {
-    margin-left: 0;
-    font-size: 13px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .box {
-    margin: 40px auto 60px;
-    padding: 32px 22px;
-  }
+  .featured-project { flex-direction: column; }
+  .featured-project-cover { width: 100%; max-width: 200px; }
+  .header-inner { flex-direction: column; gap: 20px; }
 }
